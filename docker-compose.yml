@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  dbos:
+    image: mysql:5.7
+    volumes:
+      - dbvol:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: redhat
+      MYSQL_USER: sakshi
+      MYSQL_PASSWORD: redhat
+      MYSQL_DATABASE: mydb
+        
+        
+  drupalos2:
+    image: drupal:8-apache
+    restart: always
+    depends_on:
+      - dbos
+    ports:
+      - 8081:80
+      - 8084:80
+    volumes:
+      - druvol:/var/www/html
+    
+volumes:
+  druvol:
+  dbvol:
