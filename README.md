@@ -1,2 +1,2 @@
 # dockerTrainingProject
-Project made after completing the docker traing
+Project made after completing the docker training.
